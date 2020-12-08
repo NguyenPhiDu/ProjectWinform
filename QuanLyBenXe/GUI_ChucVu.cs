@@ -21,10 +21,12 @@ namespace QuanLyBenXe
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+           
             if(txtTenCV.Text != "" && txtMaSoCV.Text != "")
             {
                 ET_ChucVu etCV = new ET_ChucVu(txtMaSoCV.Text, txtTenCV.Text);
                 buscv.insertChucVu(etCV);
+                MessageBox.Show("Them thanh cong");
                 Load();
                 txtMaSoCV.Clear();
                 txtTenCV.Clear();
@@ -42,13 +44,77 @@ namespace QuanLyBenXe
             dgvChucVu.DataSource = buscv.getChucVu();
         }
 
+        //row  check
+        DataGridViewRow row ;
         private void dgvChucVu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dgvChucVu.SelectedCells[0].OwningRow;
+            row = dgvChucVu.SelectedCells[0].OwningRow;
             txtMaSoCV.Text = row.Cells["mscv"].Value.ToString();
             txtTenCV.Text = row.Cells["tencv"].Value.ToString();
         }
 
-       
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (txtTenCV.Text != "" && txtMaSoCV.Text != "")
+            {
+                ET_ChucVu etCV = new ET_ChucVu(txtMaSoCV.Text, txtTenCV.Text);
+                if (buscv.updateChucVu(etCV))
+                {
+                    MessageBox.Show("Sua thanh cong");
+                    Load();
+                    txtMaSoCV.Clear();
+                    txtTenCV.Clear();
+                    txtMaSoCV.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Sua khong thanh cong");
+                }             
+            }
+            else
+            {
+                MessageBox.Show("Vui long dien day du thong tin");
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+           string id= txtMaSoCV.Text;
+            if (txtMaSoCV.Text != "")
+            {
+                if (buscv.deleteChucVu(id))
+                {
+                    MessageBox.Show("Xoa thanh cong");
+                    Load();
+                    txtMaSoCV.Clear();
+                    txtTenCV.Clear();
+                    txtMaSoCV.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Xoa khong thanh cong");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui long chon dong de xoa");
+            }
+            
+        }
+
+        private void GUI_ChucVu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult r= new DialogResult();
+            MessageBox.Show("DO you want to close? ", "No", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if(r == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

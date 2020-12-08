@@ -20,5 +20,15 @@ namespace BUS_QuanLyBenXe
         {
             return dalCV.insertChucVu(etCV);
         }
+        //method update chuc vu
+        public bool updateChucVu(ET_ChucVu etCV)
+        {
+            return dalCV.updateChucVu(etCV);
+        }
+        //method delete chuc vu
+        public bool deleteChucVu(string id)
+        {
+            return dalCV.deleteChucVu(id);
+        }
     }
 }

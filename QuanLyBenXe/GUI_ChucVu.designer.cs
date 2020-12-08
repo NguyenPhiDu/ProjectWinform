@@ -46,47 +46,49 @@
             this.dgvChucVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChucVu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvChucVu.Location = new System.Drawing.Point(0, 189);
-            this.dgvChucVu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvChucVu.Margin = new System.Windows.Forms.Padding(4);
             this.dgvChucVu.Name = "dgvChucVu";
             this.dgvChucVu.Size = new System.Drawing.Size(579, 133);
             this.dgvChucVu.TabIndex = 52;
             this.dgvChucVu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvChucVu_CellContentClick);
-         
             // 
             // btnThoat
             // 
             this.btnThoat.Location = new System.Drawing.Point(465, 117);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(100, 28);
             this.btnThoat.TabIndex = 48;
             this.btnThoat.Text = "&Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnXoa
             // 
             this.btnXoa.Location = new System.Drawing.Point(309, 117);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(100, 28);
             this.btnXoa.TabIndex = 49;
             this.btnXoa.Text = "&Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
             this.btnSua.Location = new System.Drawing.Point(163, 117);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(100, 28);
             this.btnSua.TabIndex = 50;
             this.btnSua.Text = "&Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
             this.btnThem.Location = new System.Drawing.Point(15, 117);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(100, 28);
             this.btnThem.TabIndex = 51;
@@ -97,7 +99,7 @@
             // txtTenCV
             // 
             this.txtTenCV.Location = new System.Drawing.Point(212, 69);
-            this.txtTenCV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenCV.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenCV.Name = "txtTenCV";
             this.txtTenCV.Size = new System.Drawing.Size(225, 22);
             this.txtTenCV.TabIndex = 46;
@@ -115,7 +117,7 @@
             // txtMaSoCV
             // 
             this.txtMaSoCV.Location = new System.Drawing.Point(212, 28);
-            this.txtMaSoCV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaSoCV.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaSoCV.Name = "txtMaSoCV";
             this.txtMaSoCV.Size = new System.Drawing.Size(225, 22);
             this.txtMaSoCV.TabIndex = 47;
@@ -144,9 +146,10 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtMaSoCV);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GUI_ChucVu";
             this.Text = "GUI_ChucVu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GUI_ChucVu_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChucVu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

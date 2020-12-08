@@ -29,5 +29,34 @@ namespace DAL_QuanLyBenXe
             }
             return false;
         }
+        //sua chuc vu
+        public bool updateChucVu(ET_ChucVu etChucVu)
+        {
+            string query = string.Format("SP_UpdateChucVu @MSCV , @TENCV");
+            object[] para = new object[]
+             {
+                 etChucVu.MsCV,
+                 etChucVu.TenCV
+             };
+            if (DataProvider.Instance.ExecuteNonQuery(query, para) != 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        //xoa chuc vu
+        public bool deleteChucVu(string id)
+        {
+            string query = string.Format("SP_DeleteChucVu @MSCV");
+            object[] para = new object[]
+             {
+                 id
+             };
+            if (DataProvider.Instance.ExecuteNonQuery(query, para) != 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

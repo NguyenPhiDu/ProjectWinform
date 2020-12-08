@@ -230,3 +230,5 @@
 	insert into CHUC_VU(mscv,tencv)  values('01','Nhan Vien Ban Ve')
 	exec SP_DanhSachNhanVien
 	exec SP_ThemNhanVien N'01',N'Teo thi test','19991013',N'Sai Gon','182234512',3,5000,15000,'01'
+	exec SP_UpdateChucVu 'ad', 'admin1'
+	exec SP_DanhSachChucVu
