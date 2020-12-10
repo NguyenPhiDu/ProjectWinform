@@ -9,10 +9,17 @@ namespace BUS_QuanLyBenXe
 {
     public class BUS_NhanVien
     {
-        DAL_NhanVien nv = new DAL_NhanVien();
-        public DataTable DanhSachNhanVien()
+        DAL_NhanVien dalNV = new DAL_NhanVien();
+        ET_NhanVien etNV = new ET_NhanVien();
+        //lay danh sach nhan vien
+        public DataTable getNhanVien()
         {
-            return nv.layDanhSach();
+            return dalNV.getNhanVien();
+        }
+        //them nhan vien 
+        public bool InsertNhanVien(ET_NhanVien etNV)
+        {
+            return dalNV.insertNhanVien(etNV);
         }
     }
 }

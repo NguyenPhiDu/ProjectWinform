@@ -18,6 +18,7 @@ namespace QuanLyBenXe
         public GUI_ThongTinNhanVien()
         {
             InitializeComponent();
+            Load();
         }
 
         
@@ -25,7 +26,11 @@ namespace QuanLyBenXe
         private void btnThem_Click(object sender, EventArgs e)
         {
 
-            dgvThongTinNhanVien.DataSource = nv.DanhSachNhanVien();
+            
+        }
+        void Load()
+        {
+            dgvThongTinNhanVien.DataSource = nv.getNhanVien();
         }
     }
 }

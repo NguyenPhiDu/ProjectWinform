@@ -40,7 +40,7 @@ namespace QuanLyBenXe
         }
         void Load()
         {
-          
+            
             dgvChucVu.DataSource = buscv.getChucVu();
         }
 
@@ -49,17 +49,22 @@ namespace QuanLyBenXe
         private void dgvChucVu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             row = dgvChucVu.SelectedCells[0].OwningRow;
-            txtMaSoCV.Text = row.Cells["mscv"].Value.ToString();
-            txtTenCV.Text = row.Cells["tencv"].Value.ToString();
+            string macv = row.Cells["mscv"].Value.ToString();
+            string tencv = row.Cells["tencv"].Value.ToString();
+            txtMaSoCV.Text = macv.Trim();
+            txtMaSoCV.Enabled = false;
+            txtTenCV.Text = tencv.Trim();
         }
-
+        ErrorProvider err = new ErrorProvider();
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (txtTenCV.Text != "" && txtMaSoCV.Text != "")
             {
+               
                 ET_ChucVu etCV = new ET_ChucVu(txtMaSoCV.Text, txtTenCV.Text);
                 if (buscv.updateChucVu(etCV))
                 {
+                    txtMaSoCV.Enabled = true;
                     MessageBox.Show("Sua thanh cong");
                     Load();
                     txtMaSoCV.Clear();
@@ -84,6 +89,7 @@ namespace QuanLyBenXe
             {
                 if (buscv.deleteChucVu(id))
                 {
+                    txtMaSoCV.Enabled = true;
                     MessageBox.Show("Xoa thanh cong");
                     Load();
                     txtMaSoCV.Clear();
@@ -105,8 +111,8 @@ namespace QuanLyBenXe
         private void GUI_ChucVu_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult r= new DialogResult();
-            MessageBox.Show("DO you want to close? ", "No", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if(r == DialogResult.No)
+            MessageBox.Show("DO you want to close? ", "No", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if(r == DialogResult.Yes)
             {
                 e.Cancel = true;
             }

@@ -11,130 +11,36 @@ namespace ET_QuanLyBenXe
         private string _TenNV;
         private DateTime _NgaySinh;
         private string _DiaChi;
-        private string _SDT;
-        private string _MaSoCV;
-        private int _MaSoLuong;
-        private string _MaSoPhongBan;
+        private int _SDT;
+        private int _HeSoLuong;
+        private float _LuongCB;
+        private float _TienLuong;
+        private string _MaSoChucVu;
 
         //contructors 
         public ET_NhanVien() { }
 
-        public ET_NhanVien(string MaSoNV, string TenNV, DateTime NgaySinh, string DiaChi, string SDT, string MaSoCV, int MaSoLuong, string MaSoPhongBan)
+        public ET_NhanVien(string MaSoNV, string TenNV, DateTime NgaySinh, string DiaChi, int SDT, int HeSoLuong, float LuongCB, float TienLuong, string MaSoChucVu)
         {
-            _MaSoNV = MaSoNV;
-            _TenNV = TenNV;
-            _NgaySinh = NgaySinh;
-            _DiaChi = DiaChi;
-            _SDT = SDT;
-            _MaSoCV = MaSoCV;
-            _MaSoLuong = MaSoLuong;
-            _MaSoPhongBan = MaSoPhongBan;
+            this.MaSoNV = MaSoNV;
+            this.TenNV = TenNV;
+            this.NgaySinh = NgaySinh;
+            this.DiaChi = DiaChi;
+            this.SDT = SDT;
+            this.HeSoLuong = HeSoLuong;
+            this.LuongCB = LuongCB;
+            this.TienLuong = TienLuong;
+            this.MaSoChucVu = MaSoChucVu;
         }
 
-        //properties
-
-        public string MaSoNV
-        {
-            get
-            {
-                return _MaSoNV;
-            }
-
-            set
-            {
-                _MaSoNV = value;
-            }
-        }
-
-        public string TenNV
-        {
-            get
-            {
-                return _TenNV;
-            }
-
-            set
-            {
-                _TenNV = value;
-            }
-        }
-
-        public DateTime NgaySinh
-        {
-            get
-            {
-                return _NgaySinh;
-            }
-
-            set
-            {
-                _NgaySinh = value;
-            }
-        }
-
-        public string DiaChi
-        {
-            get
-            {
-                return _DiaChi;
-            }
-
-            set
-            {
-                _DiaChi = value;
-            }
-        }
-
-        public string SDT
-        {
-            get
-            {
-                return _SDT;
-            }
-
-            set
-            {
-                _SDT = value;
-            }
-        }
-
-        public string MaSoCV
-        {
-            get
-            {
-                return _MaSoCV;
-            }
-
-            set
-            {
-                _MaSoCV = value;
-            }
-        }
-
-        public int MaSoLuong
-        {
-            get
-            {
-                return _MaSoLuong;
-            }
-
-            set
-            {
-                _MaSoLuong = value;
-            }
-        }
-
-        public string MaSoPhongBan
-        {
-            get
-            {
-                return _MaSoPhongBan;
-            }
-
-            set
-            {
-                _MaSoPhongBan = value;
-            }
-        }
+        public string MaSoNV { get => _MaSoNV; set => _MaSoNV = value; }
+        public string TenNV { get => _TenNV; set => _TenNV = value; }
+        public DateTime NgaySinh { get => _NgaySinh; set => _NgaySinh = value; }
+        public string DiaChi { get => _DiaChi; set => _DiaChi = value; }
+        public int SDT { get => _SDT; set => _SDT = value; }
+        public int HeSoLuong { get => _HeSoLuong; set => _HeSoLuong = value; }
+        public float LuongCB { get => _LuongCB; set => _LuongCB = value; }
+        public float TienLuong { get => _TienLuong; set => _TienLuong = value; }
+        public string MaSoChucVu { get => _MaSoChucVu; set => _MaSoChucVu = value; }
     }
 }
