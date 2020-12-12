@@ -1,4 +1,4 @@
-﻿	create database QLBenXe
+﻿	drop database QLBenXe
 	go
 	use QLBenXe
 	go
@@ -66,7 +66,7 @@
 	)
 	go
 	--tạo bảng lệnh xuất bến
-	create table LENH_XUAT_BEN(
+	create table LENH_XUAT_BENH(
 		mslxb char(10) not null primary key
 		,msx char(10)
 		,mshd char(10)
@@ -81,6 +81,9 @@
 		,msx char(10)
 	)
 	go
+	---------------------------------------------------------------------------------------
+	--------								TẠO KHÓA NGOẠI							-------
+	---------------------------------------------------------------------------------------
 	--tạo khóa ngoại bảng xe
 	ALTER TABLE XE ADD CONSTRAINT fk_XE_mscx FOREIGN KEY (mscx) REFERENCES CHU_XE (mscx)
 	ALTER TABLE XE ADD CONSTRAINT fk_XE_mst FOREIGN KEY (mst) REFERENCES TUYEN (mst)
@@ -99,6 +102,10 @@
 	ALTER TABLE HOA_DON ADD CONSTRAINT fk_HOA_DON_msx FOREIGN KEY (msx) REFERENCES XE (msx)
 	go
 
+	---------------------------------------------------------------------------------------
+	--------								THÊM_XÓA_SỬA							-------
+	---------------------------------------------------------------------------------------
+	----------------------------------------1. Nhân Viên-----------------------------------
 	--tao SP_ThemNhanVien
 	create proc SP_ThemNhanVien(
 		@msnv char(10)
@@ -136,24 +143,20 @@
 	)
 	as
 		begin
-			update NHAN_VIEN set msnv = @msnv
-		,tennv = @tennv
-		,ngaysinh = @ngaySinh
-		,diachi = @diachi
-		,soDT = @soDT
-		,hesoluong = @hesoluong
-		,luongCB = @luongCB
-		,tienluong = @tienluong
-		,mscv = @mscv
+			update NHAN_VIEN set
+			msnv = @msnv
+			,tennv = @tennv
+			,ngaysinh = @ngaySinh
+			,diachi = @diachi
+			,soDT = @soDT
+			,hesoluong = @hesoluong
+			,luongCB = @luongCB
+			,tienluong = @tienluong
+			,mscv = @mscv
 			where msnv = @msnv
 		end
 	go
-	--truy van danh sach nhan vien	
-	create proc SP_DanhSachNhanVien
-	as 
-		Select * from NHAN_VIEN
-	go
-
+	-----------------------------------------2. Xe-----------------------------------------
 	--tao SP_ThemXe
 	create proc SP_ThemXe(
 		@msx char(10)
@@ -183,52 +186,325 @@
 	)
 	as
 		begin
-			update XE set msx = @msx
-		,bienxo = @bienxo
-		,soghe = @soghe
-		,mscx = @mscx
-		,mst = @mst
+			update XE set
+			msx = @msx
+			,bienxo = @bienxo
+			,soghe = @soghe
+			,mscx = @mscx
+			,mst = @mst
 			where msx = @msx
 		end
 	go
-
-
-
-	--Vinh--
-	--create store procedure for table chuc vu
-	--get table chuc vu
-	create proc SP_DanhSachChucVu
-	as
-		select * from CHUC_VU
+	-----------------------------------------3. Hóa Đơn------------------------------------
+	--tao SP_Them hóa đơn
+	create proc SP_ThemHoaDon(
+		@mshd char(10) 
+		,@ngaylapHD date 
+		,@nguoilapHD nvarchar(30) 
+		,@tien int
+		,@msx char(10)
+	)
+	as 
+		insert into HOA_DON(mshd, ngaylapHD, nguoilapHD, tien, msx)
+		values (@mshd, @ngaylapHD, @nguoilapHD, @tien, @msx)
 	go
-	--insert chuc vu
-	create proc SP_InsertChucVu( @MSCV char(10) ,@TENCV nvarchar(30))
+	--tao SP_Xóa hóa đơn
+	create proc SP_XoaHoaDon(@mshd char(10))
 	as
-		insert into CHUC_VU (mscv,tencv)
-		values (@MSCV  ,@TENCV )
-	go
-	--delete chuc vu
-	create proc SP_DeleteChucVu(@MSCV char(10))
-	as
-		begin 
-			delete from CHUC_VU where mscv =@MSCV
+		begin
+		 delete from HOA_DON where mshd = @mshd
 		end
 	go
-	--update chuc vu
-	create proc SP_UpdateChucVu(@MSCV char(10) ,@TENCV nvarchar(30))
-		as
-			begin
-				update CHUC_VU set mscv = @MSCV,
-					tencv=@TENCV
-				where mscv = @MSCV
-			end
+	--sửa SP_UpDate Hóa Đơn
+	create proc SP_UpDateHoaDon(
+		@mshd char(10) 
+		,@ngaylapHD date 
+		,@nguoilapHD nvarchar(30) 
+		,@tien int
+		,@msx char(10)
+	)
+	as
+		begin
+			update HOA_DON set mshd = @mshd
+			,ngaylapHD = @ngaylapHD
+			,nguoilapHD = @nguoilapHD
+			,tien = @tien
+			,msx = @msx
+			where mshd = @mshd
+		end
 	go
-
-
-
-	--thuc thi 
-	insert into CHUC_VU(mscv,tencv)  values('01','Nhan Vien Ban Ve')
-	exec SP_DanhSachNhanVien
-	exec SP_ThemNhanVien N'01',N'Teo thi test','19991013',N'Sai Gon','182234512',3,5000,15000,'01'
-	exec SP_UpdateChucVu 'ad', 'admin1'
+	-----------------------------------------4. Chủ xe-------------------------------------
+	--tao SP_Them Chủ xe
+	create proc SP_ThemChuXe(
+		@mscx char(10)
+		,@tencx nvarchar(30)
+		,@cmnd int
+		,@diachi nvarchar(30)
+		,@soDT int
+	)
+	as 
+		insert into CHU_XE(mscx, tencx, cmnd, diachi, soDT)
+		values (@mscx, @tencx, @cmnd, @diachi, @soDT)
+	go
+	--tao SP_Xóa Chủ xe
+	create proc SP_XoaChuXe(@mscx char(10))
+	as
+		begin
+		 delete from CHU_XE where mscx = @mscx
+		end
+	go
+	--sửa SP_UpDate Chủ xe
+	create proc SP_UpDateChuXe(
+		@mscx char(10)
+		,@tencx nvarchar(30)
+		,@cmnd int
+		,@diachi nvarchar(30)
+		,@soDT int
+	)
+	as
+		begin
+			update CHU_XE set 
+			mscx = @mscx
+			,tencx = @tencx
+			,cmnd = @cmnd
+			,diachi = @diachi
+			,soDT = @soDT
+			where mscx = @mscx
+		end
+	go
+	-----------------------------------------5. Chức vụ------------------------------------
+	--tao SP_Them  Chức vụ
+	create proc SP_ThemChucVu(
+		@mscv char(10)
+		,@tencv nvarchar(30)
+	)
+	as 
+		insert into CHUC_VU(mscv, tencv)
+		values (@mscv, @tencv)
+	go
+	--tao SP_Xóa  Chức vụ
+	create proc SP_XoaChucVu(@mscv char(10))
+	as
+		begin
+		 delete from CHUC_VU where mscv = @mscv
+		end
+	go
+	--sửa SP_UpDate  Chức vụ
+	create proc SP_UpDateChucVu(
+		@mscv char(10)
+		,@tencv nvarchar(30)
+	)
+	as
+		begin
+			update CHUC_VU set 
+			mscv = @mscv
+			,tencv = @tencv
+			where mscv = @mscv
+		end
+	go
+	-----------------------------------------6. Tuyến--------------------------------------
+	--tao SP_Them  Tuyến
+	create proc SP_ThemTuyen(
+		@mst char(10)
+		,@tuyen nvarchar(30)
+		,@benDi nvarchar(30)
+		,@doDaiTuyen int
+	)
+	as 
+		insert into TUYEN(mst, tuyen, benDi, doDaiTuyen)
+		values (@mst, @tuyen, @benDi, @doDaiTuyen)
+	go
+	--tao SP_Xóa  Tuyến
+	create proc SP_XoaTuyen(@mst char(10))
+	as
+		begin
+		 delete from TUYEN where mst = @mst
+		end
+	go
+	--sửa SP_UpDate  Tuyến
+	create proc SP_UpDateTuyen(
+		@mst char(10)
+		,@tuyen nvarchar(30)
+		,@benDi nvarchar(30)
+		,@doDaiTuyen int
+	)
+	as
+		begin
+			update TUYEN set 
+			mst = @mst
+			,tuyen = @tuyen
+			,benDi = @benDi
+			,doDaiTuyen = @doDaiTuyen
+			where mst = @mst
+		end
+	go
+	-----------------------------------------7. Vé-----------------------------------------
+	--tao SP_Them  Vé
+	create proc SP_ThemVe(
+		@msv char(10)
+		,@ghe int
+		,@msx char(10)
+		,@msnv char(10)
+	)
+	as 
+		insert into VE(msv, ghe, msx, msnv)
+		values (@msv, @ghe, @msx, @msnv)
+	go
+	--tao SP_Xóa  Vé
+	create proc SP_XoaVe(@msv char(10))
+	as
+		begin
+		 delete from VE where msv = @msv
+		end
+	go
+	--sửa SP_UpDate  Vé
+	create proc SP_UpDateVe(
+		@msv char(10)
+		,@ghe int
+		,@msx char(10)
+		,@msnv char(10)
+	)
+	as
+		begin
+			update VE set 
+			msv = @msv
+			,ghe = @ghe
+			,msx = @msx
+			,msnv = @msnv
+			where msv = @msv
+		end
+	go
+	-----------------------------------------8. lệnh xuất bến------------------------------
+	--tao SP_Them lệnh xuất bến
+	create proc SP_ThemLenhXuatBen(
+		@mslxb char(10)
+		,@msx char(10)
+		,@mshd char(10)
+	)
+	as 
+		insert into LENH_XUAT_BEN(mslxb, msx, mshd)
+		values (@mslxb, @msx, @mshd)
+	go
+	--tao SP_Xóa lệnh xuất bến
+	create proc SP_XoaLenhXuatBen(@mslxb char(10))
+	as
+		begin
+		 delete from LENH_XUAT_BEN where mslxb = @mslxb
+		end
+	go
+	--sửa SP_UpDate lệnh xuất bến
+	create proc SP_UpDateLenhXuatBen(
+		@mslxb char(10)
+		,@msx char(10)
+		,@mshd char(10)
+	)
+	as
+		begin
+			update LENH_XUAT_BEN set 
+			mslxb = @mslxb
+			,msx = @msx
+			,mshd = @mshd
+			where mslxb = @mslxb
+		end
+	go
+	-----------------------------------------9. Phiếu đăng tài-----------------------------
+	--tao SP_Them Phiếu đăng tài
+	create proc SP_ThemPhieuDangTai(
+		@mspdt char(10)
+		,@thoigian date
+		,@msx char(10)
+		,@mst char(10)
+	)
+	as 
+		insert into PHIEU_DANG_TAI(mspdt, thoigian, msx, mst)
+		values (@mspdt, @thoigian, @msx, @mst)
+	go
+	--tao SP_Xóa Phiếu đăng tài
+	create proc SP_XoaPhieuDangTai(@mspdt char(10))
+	as
+		begin
+		 delete from PHIEU_DANG_TAI where mspdt = @mspdt
+		end
+	go
+	--sửa SP_UpDate Phiếu đăng tài
+	create proc SP_UpDatePhieuDangTai(
+		@mspdt char(10)
+		,@thoigian date
+		,@msx char(10)
+		,@mst char(10)
+	)
+	as
+		begin
+			update PHIEU_DANG_TAI set 
+			mspdt = @mspdt
+			,thoigian = @thoigian
+			,msx = @msx
+			,mst = @mst
+			where mspdt = @mspdt
+		end
+	go
+	---------------------------------------------------------------------------------------
+	--------								TRUY_VẤN							 ----------
+	---------------------------------------------------------------------------------------
+	----------------------------------------1. Nhân Viên-----------------------------------
+	create proc SP_DanhSachNhanVien
+	as
+		Select * from NHAN_VIEN
+	go
+	-----------tính lương----------------
+	create proc SP_TinhLuong
+	as
+		Select hesoluong * luongCB as[tien luong] from NHAN_VIEN
+	go
+	-----------------------------------------2. Xe-----------------------------------------
+	create proc SP_DanhSachXe
+	as
+		Select * from XE
+	go
+	-----------------------------------------3. Hóa Đơn------------------------------------
+	create proc SP_DanhSachHoaDon
+	as
+		Select * from HOA_DON
+	go
+	-----------------------------------------4. Chủ xe-------------------------------------
+	create proc SP_DanhSachChuXe
+	as
+		Select * from CHU_XE
+	go
+	-----------------------------------------5. Chức vụ------------------------------------
+	create proc SP_DanhSachChucVu
+	as
+		Select * from CHUC_VU
+	go
+	-----------------------------------------6. Tuyến--------------------------------------
+	create proc SP_DanhSachTuyen
+	as
+		Select * from TUYEN
+	go
+	-----------------------------------------7. Vé-----------------------------------------
+	create proc SP_DanhSachVe
+	as
+		Select * from VE
+	go
+	-----------------------------------------8. lệnh xuất bến------------------------------
+	create proc SP_DanhSachLenhXuatBen
+	as
+		Select * from LENH_XUAT_BEN
+	go
+	-----------------------------------------9. Phiếu đăng tài-----------------------------
+	create proc SP_DanhSachPieuDangTai
+	as
+		Select * from PHIEU_DANG_TAI
+	go
+	---------------------------------------------------------------------------------------
+	--------								THỰC_THI							 ----------
+	---------------------------------------------------------------------------------------
+	exec SP_ThemChucVu'GT01',N'Giám đốc'
 	exec SP_DanhSachChucVu
+	go
+	exec SP_ThemNhanVien 'nv01', N'Huynh Chau Thanh Truc', '20/12/2000', N'Ba Tri-Ben Tre'
+							, 0900000, 2, 2000000, 4000000, 'GT01'
+	exec SP_DanhSachNhanVien
+	go 
+	exec SP_TinhLuong
+	go

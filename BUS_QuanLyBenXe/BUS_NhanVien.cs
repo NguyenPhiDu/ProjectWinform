@@ -16,10 +16,38 @@ namespace BUS_QuanLyBenXe
         {
             return dalNV.getNhanVien();
         }
+
+        /// <summary>
+        /// thêm xóa sửa ở lớp bus
+        /// </summary>
+        /// <param name="etNV"></param>
+        /// <returns></returns>
         //them nhan vien 
         public bool InsertNhanVien(ET_NhanVien etNV)
         {
-            return dalNV.insertNhanVien(etNV);
+            return dalNV.InsertNhanVien(etNV);
+        }
+        //fill combobox
+        public DataTable FillCombobox()
+        {
+            return dalNV.FillCombobox();
+        }
+        //ham tinh luong tu dong
+        public object TinhLuong()
+        {
+            return dalNV.TinhLuong();
+        }
+
+        //sua nhan vien
+        public bool UpdateNhanVien(ET_NhanVien etNV)
+        {
+            return dalNV.UpdateNhanVien(etNV);
+        }
+
+        //xoa nhan vien
+        public bool DeleteNhanVien(string msnv)
+        {
+            return dalNV.DeleteNhanVien(msnv);
         }
     }
 }
