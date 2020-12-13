@@ -126,9 +126,10 @@ namespace QuanLyBenXe
 
         private void GUI_ChuXe_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult r = new DialogResult();
-            MessageBox.Show("Do you to close", "No", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if(r == DialogResult.No)
+
+            DialogResult r = MessageBox.Show("Do you want to close ?", "N0", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1); ;
+
+            if (r == DialogResult.No)
             {
                 e.Cancel = true;
             }

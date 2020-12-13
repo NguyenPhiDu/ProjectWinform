@@ -120,7 +120,29 @@ namespace QuanLyBenXe
 
         private void dgvThongTinXe_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            DataGridViewRow row = dgvThongTinXe.SelectedCells[0].OwningRow;
+            string msx = row.Cells["msx"].Value.ToString();
+            txtMaSoXe.Text = msx.Trim();
+            txtBienSoXe.Text = row.Cells["bienso"].Value.ToString();
+            txtSoGhe.Text= row.Cells["soghe"].Value.ToString();
+            cbMaSoChuXe.Text = row.Cells["mscx"].Value.ToString();
+            cbMaSoTuyen.Text = row.Cells["mst"].Value.ToString();
+        }
 
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void GUI_Xe_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            DialogResult r = MessageBox.Show("Do you want to close ?", "N0", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1); ;
+
+            if (r == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

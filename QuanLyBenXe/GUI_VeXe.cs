@@ -49,5 +49,21 @@ namespace QuanLyBenXe
                 MessageBox.Show("Vui long dien day du thong tin");
             }
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void GUI_VeXe_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            DialogResult r = MessageBox.Show("Do you want to close ?", "N0", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1); ;
+
+            if (r == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

@@ -195,6 +195,7 @@
             this.btnThoat.TabIndex = 11;
             this.btnThoat.Text = "&Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnXoa
             // 
@@ -302,6 +303,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GUI_ThongTinNhanVien";
             this.Text = "Thông Tin Nhân Viên";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GUI_ThongTinNhanVien_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvThongTinNhanVien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -18,17 +18,17 @@ namespace DAL_QuanLyBenXe
             return DataProvider.Instance.ExecuteQuery(query);
         }
         //ham hien thi ma so nhan vien
-        public object FillComboboxNhanVien()
+        public DataTable FillComboboxNhanVien()
         {
             string query = string.Format("SP_DanhSachMaSoNhanVien");
-            return DataProvider.Instance.ExecuteScalar(query);
+            return DataProvider.Instance.ExecuteQuery(query);
         }
 
         //ham hien thi ma so xe
-        public object FillComboboxMaSoXe()
+        public DataTable FillComboboxMaSoXe()
         {
             string query = string.Format("SP_DanhSachMaSoXe");
-            return DataProvider.Instance.ExecuteScalar(query);
+            return DataProvider.Instance.ExecuteQuery(query);
         }
         /// <summary>
         /// them xoa sua 

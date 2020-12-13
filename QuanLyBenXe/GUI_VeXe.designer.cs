@@ -140,6 +140,7 @@
             this.btnThoat.TabIndex = 2;
             this.btnThoat.Text = "&Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // dgvVeXe
             // 
@@ -189,6 +190,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GUI_VeXe";
             this.Text = "GUI_VeXe";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GUI_VeXe_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeXe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

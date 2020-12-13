@@ -453,6 +453,13 @@
 	as
 		Select * from NHAN_VIEN
 	go
+
+	-----------Danh sach ma so nhan vien --------------
+	create proc SP_DanhSachMaSoNhanVien
+	as
+		Select msnv from NHAN_VIEN
+	go
+
 	-----------tính lương----------------
 	create proc SP_TinhLuong
 	as
@@ -462,6 +469,11 @@
 	create proc SP_DanhSachXe
 	as
 		Select * from XE
+	go
+	-----------Danh sach ma so xe --------------
+	create proc SP_DanhSachMaSoXe
+	as
+		Select msx from XE
 	go
 	-----------------------------------------3. Hóa Đơn------------------------------------
 	create proc SP_DanhSachHoaDon
@@ -473,6 +485,12 @@
 	as
 		Select * from CHU_XE
 	go
+	-----danh sach ma so chu xe------------
+
+	create proc SP_DanhSachMaSoChuXe
+	as
+		Select mscx from CHU_XE
+	go
 	-----------------------------------------5. Chức vụ------------------------------------
 	create proc SP_DanhSachChucVu
 	as
@@ -482,6 +500,12 @@
 	create proc SP_DanhSachTuyen
 	as
 		Select * from TUYEN
+	go
+
+	-----danh sach ma so tuyen------------
+	create proc SP_DanhSachMaSoTuyen
+	as
+		Select mst from TUYEN
 	go
 	-----------------------------------------7. Vé-----------------------------------------
 	create proc SP_DanhSachVe

@@ -46,65 +46,73 @@
             // 
             // txtDoDaiTuyen
             // 
-            this.txtDoDaiTuyen.Location = new System.Drawing.Point(366, 51);
+            this.txtDoDaiTuyen.Location = new System.Drawing.Point(488, 63);
+            this.txtDoDaiTuyen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDoDaiTuyen.Name = "txtDoDaiTuyen";
-            this.txtDoDaiTuyen.Size = new System.Drawing.Size(170, 20);
+            this.txtDoDaiTuyen.Size = new System.Drawing.Size(225, 22);
             this.txtDoDaiTuyen.TabIndex = 22;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(264, 54);
+            this.label7.Location = new System.Drawing.Point(352, 66);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 13);
+            this.label7.Size = new System.Drawing.Size(99, 17);
             this.label7.TabIndex = 18;
             this.label7.Text = "Độ Dài Tuyến:";
             // 
             // txtTuyen
             // 
-            this.txtTuyen.Location = new System.Drawing.Point(366, 12);
+            this.txtTuyen.Location = new System.Drawing.Point(488, 15);
+            this.txtTuyen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTuyen.Name = "txtTuyen";
-            this.txtTuyen.Size = new System.Drawing.Size(170, 20);
+            this.txtTuyen.Size = new System.Drawing.Size(225, 22);
             this.txtTuyen.TabIndex = 23;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(281, 15);
+            this.label5.Location = new System.Drawing.Point(375, 18);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.Size = new System.Drawing.Size(52, 17);
             this.label5.TabIndex = 19;
             this.label5.Text = "Tuyến:";
             // 
             // txtBenDi
             // 
-            this.txtBenDi.Location = new System.Drawing.Point(75, 49);
+            this.txtBenDi.Location = new System.Drawing.Point(100, 60);
+            this.txtBenDi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBenDi.Name = "txtBenDi";
-            this.txtBenDi.Size = new System.Drawing.Size(170, 20);
+            this.txtBenDi.Size = new System.Drawing.Size(225, 22);
             this.txtBenDi.TabIndex = 24;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 51);
+            this.label2.Location = new System.Drawing.Point(8, 63);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.Size = new System.Drawing.Size(54, 17);
             this.label2.TabIndex = 20;
             this.label2.Text = "Bến Đi:";
             // 
             // txtMaSoTuyen
             // 
-            this.txtMaSoTuyen.Location = new System.Drawing.Point(75, 12);
+            this.txtMaSoTuyen.Location = new System.Drawing.Point(100, 15);
+            this.txtMaSoTuyen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMaSoTuyen.Name = "txtMaSoTuyen";
-            this.txtMaSoTuyen.Size = new System.Drawing.Size(170, 20);
+            this.txtMaSoTuyen.Size = new System.Drawing.Size(225, 22);
             this.txtMaSoTuyen.TabIndex = 25;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 15);
+            this.label1.Location = new System.Drawing.Point(4, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.Size = new System.Drawing.Size(96, 17);
             this.label1.TabIndex = 21;
             this.label1.Text = "Mã Số Tuyến:";
             // 
@@ -113,52 +121,62 @@
             this.dgvTuyen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTuyen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTuyen.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvTuyen.Location = new System.Drawing.Point(0, 170);
+            this.dgvTuyen.Location = new System.Drawing.Point(0, 209);
+            this.dgvTuyen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvTuyen.Name = "dgvTuyen";
-            this.dgvTuyen.Size = new System.Drawing.Size(555, 180);
+            this.dgvTuyen.Size = new System.Drawing.Size(740, 222);
             this.dgvTuyen.TabIndex = 30;
+            this.dgvTuyen.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTuyen_CellContentClick);
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(419, 92);
+            this.btnThoat.Location = new System.Drawing.Point(559, 113);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(75, 23);
+            this.btnThoat.Size = new System.Drawing.Size(100, 28);
             this.btnThoat.TabIndex = 26;
             this.btnThoat.Text = "&Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(302, 92);
+            this.btnXoa.Location = new System.Drawing.Point(403, 113);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa.Size = new System.Drawing.Size(100, 28);
             this.btnXoa.TabIndex = 27;
             this.btnXoa.Text = "&Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(192, 92);
+            this.btnSua.Location = new System.Drawing.Point(256, 113);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(75, 23);
+            this.btnSua.Size = new System.Drawing.Size(100, 28);
             this.btnSua.TabIndex = 28;
             this.btnSua.Text = "&Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(81, 92);
+            this.btnThem.Location = new System.Drawing.Point(108, 113);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(75, 23);
+            this.btnThem.Size = new System.Drawing.Size(100, 28);
             this.btnThem.TabIndex = 29;
             this.btnThem.Text = "&Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // GUI_Tuyen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(555, 350);
+            this.ClientSize = new System.Drawing.Size(740, 431);
             this.Controls.Add(this.dgvTuyen);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnXoa);
@@ -172,8 +190,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtMaSoTuyen);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "GUI_Tuyen";
             this.Text = "GUI_Tuyen";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GUI_Tuyen_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTuyen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

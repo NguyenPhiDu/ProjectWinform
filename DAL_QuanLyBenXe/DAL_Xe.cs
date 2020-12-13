@@ -17,17 +17,17 @@ namespace DAL_QuanLyBenXe
             return DataProvider.Instance.ExecuteQuery(query);
         }
         //fill combobox ma so chu xe
-        public object FillComboboxMaSoCX()
+        public DataTable FillComboboxMaSoCX()
         {
             string query = string.Format("SP_DanhSachMaSoChuXe");
-            return DataProvider.Instance.ExecuteScalar(query);
+            return DataProvider.Instance.ExecuteQuery(query);
         }
 
         //fill combobox ma so ma tuyen
-        public object FillComboboxMaSoTuyen()
+        public DataTable FillComboboxMaSoTuyen()
         {
             string query = string.Format("SP_DanhSachMaSoTuyen");
-            return DataProvider.Instance.ExecuteScalar(query);
+            return DataProvider.Instance.ExecuteQuery(query);
         }
         /// <summary>
         /// them xoa sua
