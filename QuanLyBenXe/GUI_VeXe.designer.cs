@@ -33,14 +33,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtGhe = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtMaSoXe = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtMaSoNhanVien = new System.Windows.Forms.TextBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.dgvVeXe = new System.Windows.Forms.DataGridView();
+            this.cbMaSoNV = new System.Windows.Forms.ComboBox();
+            this.cbMaSoXe = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeXe)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,14 +90,6 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Mã Số Xe: ";
             // 
-            // txtMaSoXe
-            // 
-            this.txtMaSoXe.Location = new System.Drawing.Point(541, 15);
-            this.txtMaSoXe.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMaSoXe.Name = "txtMaSoXe";
-            this.txtMaSoXe.Size = new System.Drawing.Size(225, 22);
-            this.txtMaSoXe.TabIndex = 1;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -107,14 +99,6 @@
             this.label4.Size = new System.Drawing.Size(126, 17);
             this.label4.TabIndex = 0;
             this.label4.Text = "Mã Số Nhân Viên: ";
-            // 
-            // txtMaSoNhanVien
-            // 
-            this.txtMaSoNhanVien.Location = new System.Drawing.Point(541, 63);
-            this.txtMaSoNhanVien.Margin = new System.Windows.Forms.Padding(4);
-            this.txtMaSoNhanVien.Name = "txtMaSoNhanVien";
-            this.txtMaSoNhanVien.Size = new System.Drawing.Size(225, 22);
-            this.txtMaSoNhanVien.TabIndex = 1;
             // 
             // btnThem
             // 
@@ -168,19 +152,35 @@
             this.dgvVeXe.Size = new System.Drawing.Size(801, 185);
             this.dgvVeXe.TabIndex = 3;
             // 
+            // cbMaSoNV
+            // 
+            this.cbMaSoNV.FormattingEnabled = true;
+            this.cbMaSoNV.Location = new System.Drawing.Point(541, 58);
+            this.cbMaSoNV.Name = "cbMaSoNV";
+            this.cbMaSoNV.Size = new System.Drawing.Size(225, 24);
+            this.cbMaSoNV.TabIndex = 4;
+            // 
+            // cbMaSoXe
+            // 
+            this.cbMaSoXe.FormattingEnabled = true;
+            this.cbMaSoXe.Location = new System.Drawing.Point(541, 18);
+            this.cbMaSoXe.Name = "cbMaSoXe";
+            this.cbMaSoXe.Size = new System.Drawing.Size(225, 24);
+            this.cbMaSoXe.TabIndex = 5;
+            // 
             // GUI_VeXe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 366);
+            this.Controls.Add(this.cbMaSoXe);
+            this.Controls.Add(this.cbMaSoNV);
             this.Controls.Add(this.dgvVeXe);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.txtMaSoNhanVien);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtMaSoXe);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtGhe);
             this.Controls.Add(this.label2);
@@ -202,13 +202,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtGhe;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtMaSoXe;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtMaSoNhanVien;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.DataGridView dgvVeXe;
+        private System.Windows.Forms.ComboBox cbMaSoNV;
+        private System.Windows.Forms.ComboBox cbMaSoXe;
     }
 }

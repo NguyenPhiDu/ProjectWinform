@@ -22,28 +22,27 @@ namespace QuanLyBenXe
         //load
         void  Load()
         {
+
             dgvVeXe.DataSource= busVe.getVe();
         }
+        //hien thi combobox
+        void FillCombobox()
+        {
 
+            cbMaSoNV.DataSource = busVe.FillComboboxNhanVien();
+            cbMaSoNV.DisplayMember = "tencv";
+            cbMaSoNV.ValueMember = "mscv";
+
+            cbMaSoXe.DataSource = busVe.FillComboboxMaSoXe();
+            cbMaSoNV.DisplayMember = "msx";
+            cbMaSoNV.ValueMember = "msx";
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (txtMaSoVeXe.Text != "" && txtMaSoNhanVien.Text != "")
+            if (txtMaSoVeXe.Text != "" && txtMaSoVeXe.Text != "" &&cbMaSoNV.Text!="" &&cbMaSoXe.Text!="")
             {
-                ET_Ve etVe = new ET_Ve(txtMaSoVeXe.Text,int.Parse(txtGhe.Text),txtMaSoXe.Text,txtMaSoNhanVien.Text);
-                if (busVe.InsertVe(etVe))
-                {
-                    MessageBox.Show("Them thanh cong");
-                    Load();
-                    txtMaSoVeXe.Clear();
-                    txtMaSoVeXe.Focus();
-                    txtMaSoNhanVien.Clear();
-                    txtMaSoXe.Clear();
-                    txtGhe.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Them khong thanh cong");
-                }
+                //ET_Ve etVe = new ET_Ve(tx);
+                //if(busVe.InsertVe())
             }
             else
             {

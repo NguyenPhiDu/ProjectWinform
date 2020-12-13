@@ -1,4 +1,4 @@
-﻿	drop database QLBenXe
+﻿	create database QLBenXe
 	go
 	use QLBenXe
 	go
@@ -29,12 +29,14 @@
 	--tạo bảng xe
 	create table XE(
 		msx char(10) not null primary key
-		,bienxo char(10) not null
+		,bienso char(10) not null
 		,soghe int not null
 		,mscx char(10)
 		,mst char(10)
 	)
 	go
+
+	
 	--tạo bảng tuyến
 	create table TUYEN(
 		mst char(10) not null primary key
@@ -160,14 +162,14 @@
 	--tao SP_ThemXe
 	create proc SP_ThemXe(
 		@msx char(10)
-		,@bienxo char(10)
+		,@bienso char(10)
 		,@soghe int
 		,@mscx char(10)
 		,@mst char(10)
 	)
 	as 
-		insert into XE(msx, bienxo, soghe, mscx, mst)
-		values (@msx, @bienxo, @soghe ,@mscx, @mst)
+		insert into XE(msx, bienso, soghe, mscx, mst)
+		values (@msx, @bienso, @soghe ,@mscx, @mst)
 	go
 	--xóa Xe
 	create proc SP_XoaXe(@msx char(10))
@@ -179,7 +181,7 @@
 	--sửa xe
 	create proc SP_UpDateXe(
 		@msx char(10)
-		,@bienxo char(10)
+		,@bienso char(10)
 		,@soghe int
 		,@mscx char(10)
 		,@mst char(10)
@@ -188,7 +190,7 @@
 		begin
 			update XE set
 			msx = @msx
-			,bienxo = @bienxo
+			,bienso = @bienso
 			,soghe = @soghe
 			,mscx = @mscx
 			,mst = @mst

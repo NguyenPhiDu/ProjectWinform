@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\QuanLyBenXe.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -61,23 +62,11 @@
     <Compile Include="GUI_Login.designer.cs">
       <DependentUpon>GUI_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI_Luong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI_Luong.designer.cs">
-      <DependentUpon>GUI_Luong.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI_PhieuDangTai.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI_PhieuDangTai.designer.cs">
       <DependentUpon>GUI_PhieuDangTai.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI_PhongBan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI_PhongBan.designer.cs">
-      <DependentUpon>GUI_PhongBan.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI_QuanLyBenXe.cs">
       <SubType>Form</SubType>
@@ -85,11 +74,11 @@
     <Compile Include="GUI_QuanLyBenXe.designer.cs">
       <DependentUpon>GUI_QuanLyBenXe.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI_QuanLyBenXe_NhanVien.cs">
+    <Compile Include="GUI_VeXe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI_QuanLyBenXe_NhanVien.designer.cs">
-      <DependentUpon>GUI_QuanLyBenXe_NhanVien.cs</DependentUpon>
+    <Compile Include="GUI_VeXe.designer.cs">
+      <DependentUpon>GUI_VeXe.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI_QuanLyHoaDon.cs">
       <SubType>Form</SubType>
@@ -126,20 +115,14 @@
     <EmbeddedResource Include="GUI_Login.resx">
       <DependentUpon>GUI_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI_Luong.resx">
-      <DependentUpon>GUI_Luong.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI_PhieuDangTai.resx">
       <DependentUpon>GUI_PhieuDangTai.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI_PhongBan.resx">
-      <DependentUpon>GUI_PhongBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QuanLyBenXe.resx">
       <DependentUpon>GUI_QuanLyBenXe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI_QuanLyBenXe_NhanVien.resx">
-      <DependentUpon>GUI_QuanLyBenXe_NhanVien.cs</DependentUpon>
+    <EmbeddedResource Include="GUI_VeXe.resx">
+      <DependentUpon>GUI_VeXe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_QuanLyHoaDon.resx">
       <DependentUpon>GUI_QuanLyHoaDon.cs</DependentUpon>

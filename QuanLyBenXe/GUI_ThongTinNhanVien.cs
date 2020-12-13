@@ -35,7 +35,11 @@ namespace QuanLyBenXe
                     Load();
                     txtMaNV.Clear();
                     txtTenNV.Clear();
-                    txtMaNV.Focus();
+                    txtDiaChi.Clear();
+                    txtSDT.Clear();
+                    txtHeSoLuong.Clear();
+                    txtLuongCB.Clear();
+                    txtTienLuong.Clear();
                 }
                 else
                 {
@@ -89,7 +93,11 @@ namespace QuanLyBenXe
                     Load();
                     txtMaNV.Clear();
                     txtTenNV.Clear();
-                    txtMaNV.Focus();
+                    txtDiaChi.Clear();
+                    txtSDT.Clear();
+                    txtHeSoLuong.Clear();
+                    txtLuongCB.Clear();
+                    txtTienLuong.Clear();
                 }
                 else
                 {
@@ -143,6 +151,11 @@ namespace QuanLyBenXe
                     Load();
                     txtMaNV.Clear();
                     txtTenNV.Clear();
+                    txtDiaChi.Clear();
+                    txtSDT.Clear();
+                    txtHeSoLuong.Clear();
+                    txtLuongCB.Clear();
+                    txtTienLuong.Clear();
                     txtMaNV.Focus();
                 }
                 else
