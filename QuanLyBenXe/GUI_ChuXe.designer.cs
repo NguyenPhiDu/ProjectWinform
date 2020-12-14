@@ -116,9 +116,9 @@
             this.label5.Location = new System.Drawing.Point(383, 89);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 17);
+            this.label5.Size = new System.Drawing.Size(83, 17);
             this.label5.TabIndex = 28;
-            this.label5.Text = "Tên Tài Xế:";
+            this.label5.Text = "Tên Chủ Xe";
             // 
             // txtCMND
             // 

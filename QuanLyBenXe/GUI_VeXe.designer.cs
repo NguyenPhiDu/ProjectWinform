@@ -120,6 +120,7 @@
             this.btnSua.TabIndex = 2;
             this.btnSua.Text = "&Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnXoa
             // 
@@ -130,6 +131,7 @@
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "&Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThoat
             // 
@@ -152,6 +154,7 @@
             this.dgvVeXe.Name = "dgvVeXe";
             this.dgvVeXe.Size = new System.Drawing.Size(801, 185);
             this.dgvVeXe.TabIndex = 3;
+            this.dgvVeXe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVeXe_CellContentClick);
             // 
             // cbMaSoNV
             // 

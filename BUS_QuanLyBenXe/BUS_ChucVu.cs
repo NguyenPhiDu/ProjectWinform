@@ -16,19 +16,19 @@ namespace BUS_QuanLyBenXe
             return dalCV.getChucVu();
         }
         //method insert chuc vu
-        public bool insertChucVu(ET_ChucVu etCV)
+        public bool InsertChucVu(ET_ChucVu etCV)
         {
-            return dalCV.insertChucVu(etCV);
+            return dalCV.InsertChucVu(etCV);
         }
         //method update chuc vu
-        public bool updateChucVu(ET_ChucVu etCV)
+        public bool UpdateChucVu(ET_ChucVu etCV)
         {
-            return dalCV.updateChucVu(etCV);
+            return dalCV.UpdateChucVu(etCV);
         }
         //method delete chuc vu
-        public bool deleteChucVu(string id)
+        public bool DeleteChucVu(string id)
         {
-            return dalCV.deleteChucVu(id);
+            return dalCV.DeleteChucVu(id);
         }
     }
 }

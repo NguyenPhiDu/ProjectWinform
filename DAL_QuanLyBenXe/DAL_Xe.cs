@@ -19,14 +19,14 @@ namespace DAL_QuanLyBenXe
         //fill combobox ma so chu xe
         public DataTable FillComboboxMaSoCX()
         {
-            string query = string.Format("SP_DanhSachMaSoChuXe");
+            string query = string.Format("SP_DanhSachChuXe");
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
         //fill combobox ma so ma tuyen
         public DataTable FillComboboxMaSoTuyen()
         {
-            string query = string.Format("SP_DanhSachMaSoTuyen");
+            string query = string.Format("SP_DanhSachTuyen");
             return DataProvider.Instance.ExecuteQuery(query);
         }
         /// <summary>

@@ -68,12 +68,14 @@
 	)
 	go
 	--tạo bảng lệnh xuất bến
-	create table LENH_XUAT_BENH(
+	create table LENH_XUAT_BEN(
 		mslxb char(10) not null primary key
 		,msx char(10)
 		,mshd char(10)
 	)
 	go
+
+	
 	--tạo bảng hóa đơn
 	create table HOA_DON(
 		mshd char(10) not null primary key
@@ -454,11 +456,12 @@
 		Select * from NHAN_VIEN
 	go
 
-	-----------Danh sach ma so nhan vien --------------
+	-----------Danh sach ma so nhan vien ban ve --------------
 	create proc SP_DanhSachMaSoNhanVien
 	as
-		Select msnv from NHAN_VIEN
+		Select * from NHAN_VIEN where msnv='nv01'
 	go
+
 
 	-----------tính lương----------------
 	create proc SP_TinhLuong
@@ -525,12 +528,70 @@
 	---------------------------------------------------------------------------------------
 	--------								THỰC_THI							 ----------
 	---------------------------------------------------------------------------------------
-	exec SP_ThemChucVu'GT01',N'Giám đốc'
+	exec SP_ThemChucVu'CV01',N'Nhân viên bán vé'
+	exec SP_ThemChucVu'CV02',N'Nhân viên lao công'
+	exec SP_ThemChucVu'CV03',N'Nhân viên bảo vệ'
+	exec SP_ThemChucVu'CV04',N'Tài xế'
+	exec SP_ThemChucVu'CV05',N'Nhân viên Bảo trì hệ thống'
+	exec SP_ThemChucVu'CV06',N'Kế toán'
+	exec SP_ThemChucVu'CVQT',N'Admin quản trị hệ thống'
 	exec SP_DanhSachChucVu
 	go
 	exec SP_ThemNhanVien 'nv01', N'Huynh Chau Thanh Truc', '20/12/2000', N'Ba Tri-Ben Tre'
-							, 0900000, 2, 2000000, 4000000, 'GT01'
+							, 0900000, 2, 2000000, 4000000, 'CV02'
+	exec SP_ThemNhanVien 'nv02' , N'Nguyen Phi Du','20000128',N'Long An',334224,3,4000,12000,'CV01'
+	exec SP_ThemNhanVien 'nv03' , N'Nguyen Du Phi','20000119',N'Long An',213232,3,5000,12000,'CV03'
+	exec SP_ThemNhanVien 'nv04' , N'Nguyen Tri Teo','2000107',N'Long An',232453,3,6000,12000,'CV04'
+	exec SP_ThemNhanVien 'nv05' , N'Nguyen Quoc Huy','20001006',N'Long An',43452,3,7000,12000,'CVQT'
+	exec SP_ThemNhanVien 'nv06',N'Nguyễn Ngọc Trinh','19990506',N'Long Xuyên',226733,3,4000,12000,'CV06'
 	exec SP_DanhSachNhanVien
 	go 
 	exec SP_TinhLuong
 	go
+
+	exec SP_ThemVe '01',3,'03','nv02'
+	exec SP_ThemVe '03',10,'03','nv02'
+	exec SP_ThemVe '02',13,'03','nv02'
+	exec SP_ThemVe '04',3,'01','nv02'
+	exec SP_ThemVe '05',10,'01','nv02'
+	exec SP_ThemVe '06',13,'02','nv02'
+	exec SP_ThemChuXe '03', N'Phuong Trang' ,1235223 ,N'Sai Gon' , 76546738
+	exec SP_ThemXe '01','68-01',45,'01','01'
+	exec SP_ThemXe '02','71-16',29,'02','02'
+	exec SP_ThemXe '03','60-20',16,'03','03'
+	exec SP_ThemVe '02',3,'01','01'
+
+	go
+	exec  SP_ThemLenhXuatBen 'LXB01','01','HD01'
+	exec  SP_ThemLenhXuatBen 'LXB02','02','HD02'
+	exec  SP_ThemLenhXuatBen 'LXB03','03','HD03'
+	exec  SP_ThemLenhXuatBen 'LXB04','04','HD04'
+	exec  SP_ThemLenhXuatBen 'LXB05','05','HD05'
+	exec SP_ThemLenhXuatBen 'LXB06','01','HD2'
+
+
+	exec SP_ThemHoaDon 'HD01','20201214', N'Nguyen Phi Du',10000,'01'
+	exec SP_ThemHoaDon 'HD02','20201214', N'Nguyễn Ngọc Trinh',10000,'01'
+	exec SP_ThemHoaDon 'HD03','20201214', N'Nguyễn Ngọc Trinh',10000,'01'
+	exec SP_ThemHoaDon 'HD04','20201214', N'Nguyễn Ngọc Trinh',10000,'01'
+	exec SP_ThemHoaDon 'HD05','20201214', N'Nguyễn Ngọc Trinh',10000,'01'
+
+	exec SP_ThemPhieuDangTai 'PDT01','20201214','01','01'
+	exec SP_ThemPhieuDangTai 'PDT02','20201214','02','02'
+	exec SP_ThemPhieuDangTai 'PDT03','20201214','03','03'
+	exec SP_ThemPhieuDangTai 'PDT04','20201214','02','02'
+	exec SP_ThemPhieuDangTai 'PDT05','20201214','03','03'
+	select * from XE
+	select * from TUYEN
+	select * from CHU_XE
+	select * from VE
+	select * from NHAN_VIEN
+	select * from HOA_DON
+	select * from CHUC_VU
+	select * from LENH_XUAT_BEN
+	select * from PHIEU_DANG_TAI
+
+	exec SP_DanhSachMaSoNhanVien
+
+	
+	

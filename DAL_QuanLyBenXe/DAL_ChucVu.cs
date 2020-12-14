@@ -15,7 +15,7 @@ namespace DAL_QuanLyBenXe
             return DataProvider.Instance.ExecuteQuery(query);
         }
         //them danh sach chuc vu
-        public bool insertChucVu(ET_ChucVu etChucVu)
+        public bool InsertChucVu(ET_ChucVu etChucVu)
         {
             string query = string.Format("SP_InsertChucVu @MSCV , @TENCV");
             object[] para = new object[]
@@ -30,7 +30,7 @@ namespace DAL_QuanLyBenXe
             return false;
         }
         //sua chuc vu
-        public bool updateChucVu(ET_ChucVu etChucVu)
+        public bool UpdateChucVu(ET_ChucVu etChucVu)
         {
             string query = string.Format("SP_UpdateChucVu @MSCV , @TENCV");
             object[] para = new object[]
@@ -45,9 +45,9 @@ namespace DAL_QuanLyBenXe
             return false;
         }
         //xoa chuc vu
-        public bool deleteChucVu(string id)
+        public bool DeleteChucVu(string id)
         {
-            string query = string.Format("SP_DeleteChucVu @MSCV");
+            string query = string.Format("SP_XoaChucVu @MSCV");
             object[] para = new object[]
              {
                  id

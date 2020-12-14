@@ -25,7 +25,7 @@ namespace QuanLyBenXe
             if(txtTenCV.Text != "" && txtMaSoCV.Text != "")
             {
                 ET_ChucVu etCV = new ET_ChucVu(txtMaSoCV.Text, txtTenCV.Text);
-                buscv.insertChucVu(etCV);
+                buscv.InsertChucVu(etCV);
                 MessageBox.Show("Them thanh cong");
                 Load();
                 txtMaSoCV.Clear();
@@ -62,7 +62,7 @@ namespace QuanLyBenXe
             {
                
                 ET_ChucVu etCV = new ET_ChucVu(txtMaSoCV.Text, txtTenCV.Text);
-                if (buscv.updateChucVu(etCV))
+                if (buscv.UpdateChucVu(etCV))
                 {
                     txtMaSoCV.Enabled = true;
                     MessageBox.Show("Sua thanh cong");
@@ -84,10 +84,10 @@ namespace QuanLyBenXe
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-           string id= txtMaSoCV.Text;
+          
             if (txtMaSoCV.Text != "")
             {
-                if (buscv.deleteChucVu(id))
+                if (buscv.DeleteChucVu(txtMaSoCV.Text))
                 {
                     txtMaSoCV.Enabled = true;
                     MessageBox.Show("Xoa thanh cong");
