@@ -121,6 +121,8 @@
             this.txtMaSoCV.Name = "txtMaSoCV";
             this.txtMaSoCV.Size = new System.Drawing.Size(225, 22);
             this.txtMaSoCV.TabIndex = 47;
+            this.txtMaSoCV.TextChanged += new System.EventHandler(this.txtMaSoCV_TextChanged);
+            this.txtMaSoCV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaSoCV_KeyPress);
             // 
             // label1
             // 

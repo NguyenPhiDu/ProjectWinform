@@ -21,31 +21,47 @@ namespace QuanLyBenXe
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-           
-            if(txtTenCV.Text != "" && txtMaSoCV.Text != "")
+            
+
+            if (txtTenCV.Text != "" && txtMaSoCV.Text != "")
             {
                 ET_ChucVu etCV = new ET_ChucVu(txtMaSoCV.Text, txtTenCV.Text);
-                buscv.InsertChucVu(etCV);
-                MessageBox.Show("Them thanh cong");
-                Load();
-                txtMaSoCV.Clear();
-                txtTenCV.Clear();
-                txtMaSoCV.Focus();
+                try
+                {
+                    if (buscv.InsertChucVu(etCV))
+                    {
+                        MessageBox.Show("Thêm thành công");
+                        Load();
+                        txtMaSoCV.Clear();
+                        txtTenCV.Clear();
+                        txtMaSoCV.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm  thất bại");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Mã chức vụ bị trùng");
+                }
+
             }
+
             else
             {
-                MessageBox.Show("Vui long dien day du thong tin");
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin");
             }
-          
+
         }
         void Load()
         {
-            
+
             dgvChucVu.DataSource = buscv.getChucVu();
         }
 
         //row  check
-        DataGridViewRow row ;
+        DataGridViewRow row;
         private void dgvChucVu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             row = dgvChucVu.SelectedCells[0].OwningRow;
@@ -60,37 +76,38 @@ namespace QuanLyBenXe
         {
             if (txtTenCV.Text != "" && txtMaSoCV.Text != "")
             {
-               
+                
                 ET_ChucVu etCV = new ET_ChucVu(txtMaSoCV.Text, txtTenCV.Text);
                 if (buscv.UpdateChucVu(etCV))
                 {
-                    txtMaSoCV.Enabled = true;
-                    MessageBox.Show("Sua thanh cong");
+
+                    MessageBox.Show("Sửa thành công");
                     Load();
                     txtMaSoCV.Clear();
                     txtTenCV.Clear();
                     txtMaSoCV.Focus();
+
                 }
                 else
                 {
-                    MessageBox.Show("Sua khong thanh cong");
-                }             
+                    MessageBox.Show("Sửa thất bại");
+                }
             }
             else
             {
-                MessageBox.Show("Vui long dien day du thong tin");
+                MessageBox.Show("Vui lòng chọn thông tin để sửa");
             }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-          
+
             if (txtMaSoCV.Text != "")
             {
                 if (buscv.DeleteChucVu(txtMaSoCV.Text))
                 {
                     txtMaSoCV.Enabled = true;
-                    MessageBox.Show("Xoa thanh cong");
+                    MessageBox.Show("Xóa thành công");
                     Load();
                     txtMaSoCV.Clear();
                     txtTenCV.Clear();
@@ -98,14 +115,14 @@ namespace QuanLyBenXe
                 }
                 else
                 {
-                    MessageBox.Show("Xoa khong thanh cong");
+                    MessageBox.Show("Xóa thất bại");
                 }
             }
             else
             {
-                MessageBox.Show("Vui long chon dong de xoa");
+                MessageBox.Show("Vui lòng chọn đối tượng để xóa");
             }
-            
+
         }
 
         private void GUI_ChucVu_FormClosing(object sender, FormClosingEventArgs e)
@@ -122,6 +139,25 @@ namespace QuanLyBenXe
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        //ErrorProvider err ;
+        private void txtMaSoCV_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            //if (((e.KeyChar > (char)47) && (e.KeyChar < (char)58) || (e.KeyChar == (char)46)) || (e.KeyChar < (char)32) || (e.KeyChar == 43))
+            //{
+            //    e.Handled = false;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Không được nhập ký tự này!");
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txtMaSoCV_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

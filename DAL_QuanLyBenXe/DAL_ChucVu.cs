@@ -14,10 +14,15 @@ namespace DAL_QuanLyBenXe
             string query = string.Format("SP_DanhSachChucVu");
             return DataProvider.Instance.ExecuteQuery(query);
         }
+        /// <summary>
+        /// them xoa sua
+        /// </summary>
+        /// <param name="etChucVu"></param>
+        /// <returns></returns>
         //them danh sach chuc vu
         public bool InsertChucVu(ET_ChucVu etChucVu)
         {
-            string query = string.Format("SP_InsertChucVu @MSCV , @TENCV");
+            string query = string.Format("SP_ThemChucVu @mscv , @tencv");
             object[] para = new object[]
              {
                  etChucVu.MsCV,
@@ -32,7 +37,7 @@ namespace DAL_QuanLyBenXe
         //sua chuc vu
         public bool UpdateChucVu(ET_ChucVu etChucVu)
         {
-            string query = string.Format("SP_UpdateChucVu @MSCV , @TENCV");
+            string query = string.Format("SP_UpDateChucVu @mscv , @tencv");
             object[] para = new object[]
              {
                  etChucVu.MsCV,
@@ -47,7 +52,7 @@ namespace DAL_QuanLyBenXe
         //xoa chuc vu
         public bool DeleteChucVu(string id)
         {
-            string query = string.Format("SP_XoaChucVu @MSCV");
+            string query = string.Format("SP_XoaChucVu @mscv");
             object[] para = new object[]
              {
                  id

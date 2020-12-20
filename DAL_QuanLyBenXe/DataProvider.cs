@@ -127,7 +127,6 @@ namespace DAL_QuanLyBenXe
             {
                 object data = 0;
                 SqlConnection connection = new SqlConnection(connectionString);
-
                 try
                 {
                     connection.Open();

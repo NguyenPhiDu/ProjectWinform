@@ -56,6 +56,12 @@
     <Compile Include="GUI_ChuXe.designer.cs">
       <DependentUpon>GUI_ChuXe.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI_LenhXuatBen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI_LenhXuatBen.Designer.cs">
+      <DependentUpon>GUI_LenhXuatBen.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI_Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_ChuXe.resx">
       <DependentUpon>GUI_ChuXe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI_LenhXuatBen.resx">
+      <DependentUpon>GUI_LenhXuatBen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI_Login.resx">
       <DependentUpon>GUI_Login.cs</DependentUpon>

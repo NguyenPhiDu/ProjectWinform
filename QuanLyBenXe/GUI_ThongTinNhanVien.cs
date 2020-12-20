@@ -69,17 +69,31 @@ namespace QuanLyBenXe
         }
         private void txtLuongCB_Validated(object sender, EventArgs e)
         {
-            if (txtLuongCB.Text != "" && txtHeSoLuong.Text != "")
-            {
-                txtTienLuong.Text = nv.TinhLuong().ToString();
-            }
+            //if (txtLuongCB.Text != "" && txtHeSoLuong.Text != "")
+            //{
+            //    txtTienLuong.Text = nv.TinhLuong().ToString();
+            //}
+            //int heSoLuong = int.Parse(txtHeSoLuong.Text);
+            //int tiengLuong = int.Parse(txtTienLuong.Text);
+            //int tienLuong = heSoLuong * tiengLuong;
+            //if (txtLuongCB.Text != "" && txtHeSoLuong.Text != "")
+            //{
+            //    txtTienLuong.Text = (heSoLuong * tiengLuong).ToString();
+            //}
         }
         private void txtHeSoLuong_Validated(object sender, EventArgs e)
         {
-            if (txtLuongCB.Text != "" && txtHeSoLuong.Text != "")
-            {
-                txtTienLuong.Text = nv.TinhLuong().ToString();
-            }
+            //if (txtLuongCB.Text != "" && txtHeSoLuong.Text != "")
+            //{
+            //    txtTienLuong.Text = nv.TinhLuong().ToString();
+            //}
+            //int heSoLuong = int.Parse(txtHeSoLuong.Text);
+            //int tiengLuong = int.Parse(txtTienLuong.Text);
+            //int tienLuong = heSoLuong * tiengLuong;
+            //if (txtLuongCB.Text != "" && txtHeSoLuong.Text != "")
+            //{
+            //    txtTienLuong.Text = (heSoLuong*tiengLuong).ToString();
+            //}
         }
         //sua nhan vien 
         private void btnSua_Click(object sender, EventArgs e)
@@ -183,6 +197,34 @@ namespace QuanLyBenXe
             {
                 e.Cancel = true;
             }
+        }
+
+        private void txtHeSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            //int heSoLuong = int.Parse(txtHeSoLuong.Text);
+            //int tiengLuong = int.Parse(txtTienLuong.Text);
+            //int tienLuong = heSoLuong * tiengLuong;
+            //if (txtLuongCB.Text != "" && txtHeSoLuong.Text != "")
+            //{
+            //    txtTienLuong.Text = (int.Parse(txtHeSoLuong.Text) * int.Parse(txtTienLuong.Text)).ToString();
+            //}
+        }
+
+        private void txtLuongCB_TextChanged(object sender, EventArgs e)
+        {
+            //int heSoLuong = int.Parse(txtHeSoLuong.Text);
+            //int tiengLuong = int.Parse(txtTienLuong.Text);
+            //int tienLuong = heSoLuong * tiengLuong;
+            //if (txtLuongCB.Text != "" && txtHeSoLuong.Text != "")
+            //{
+            //    txtTienLuong.Text = (int.Parse(txtHeSoLuong.Text) * int.Parse(txtTienLuong.Text)).ToString();
+            //}
+        }
+
+        private void txtLuongCB_Validating(object sender, CancelEventArgs e)
+        {
+
+
         }
     }
 }

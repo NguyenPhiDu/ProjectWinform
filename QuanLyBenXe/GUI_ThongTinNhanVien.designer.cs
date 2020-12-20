@@ -153,6 +153,8 @@
             this.txtLuongCB.Name = "txtLuongCB";
             this.txtLuongCB.Size = new System.Drawing.Size(225, 22);
             this.txtLuongCB.TabIndex = 6;
+            this.txtLuongCB.TextChanged += new System.EventHandler(this.txtLuongCB_TextChanged);
+            this.txtLuongCB.Validating += new System.ComponentModel.CancelEventHandler(this.txtLuongCB_Validating);
             this.txtLuongCB.Validated += new System.EventHandler(this.txtLuongCB_Validated);
             // 
             // label8
@@ -254,6 +256,7 @@
             this.txtHeSoLuong.Name = "txtHeSoLuong";
             this.txtHeSoLuong.Size = new System.Drawing.Size(225, 22);
             this.txtHeSoLuong.TabIndex = 19;
+            this.txtHeSoLuong.TextChanged += new System.EventHandler(this.txtHeSoLuong_TextChanged);
             this.txtHeSoLuong.Validated += new System.EventHandler(this.txtHeSoLuong_Validated);
             // 
             // txtTienLuong
